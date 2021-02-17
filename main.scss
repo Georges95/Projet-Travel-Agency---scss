@@ -15,6 +15,17 @@ body{
     color: $white;
     background: url("./media/background.jpg") no-repeat 50% 50%;
     background-size: cover;
+
+    &::before{
+        content:'';
+        background: #000000;
+        background: linear-gradient(168deg,#000000 0%, transparent 100%);
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        position: absolute;
+        z-index: 0;
+    }
 }
 li{
     list-style: none;
@@ -30,6 +41,8 @@ a{
 
 .title{
     padding: 5px 0 0 10px;
+    z-index: 10;
+    position: relative;
     h1 {
         font-family: 'Megrim', cursive;
         font-size: 45px; 
@@ -75,3 +88,105 @@ a{
     top: 80px;
     left: 13%;
 }
+
+// *********************CAROUSEL*********************
+
+.carousel {
+width: 20%;
+border-radius: 0 0 15px 15px;
+margin: -20px auto 20px auto;
+overflow: hidden;
+box-shadow: 8px 8px 4px -3px rgba(0,0,0,0.7);
+@media (min-width: 840px) {
+    display: none;
+
+}
+&__figure{
+    position: relative;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    animation: 25s sliders infinite;
+
+    &--pic{
+        width: 33.33%;
+        height: auto;
+        float: left;
+    }
+}
+    
+}
+@keyframes sliders{
+    0%{left: 0%;}
+    20%{left: 0%;}
+    25%{left: -100%;}
+    45%{left: -100%;}
+    50%{left: -200%;}
+    70%{left: 200%;}
+    75%{left: 100%;}
+    95%{left: 100%;}
+    100%{left: 0%;}
+}
+
+
+//*************************PRICING********************
+
+.offers{
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.perspective{
+    width: 100%;
+    perspective: 800px;
+    display: flex;
+    justify-content: space-between;
+
+    &__3d{
+        width: 140px;
+        height: 200px;
+        margin: auto;
+        box-shadow: 0 70px 63px -60px #494848;
+        transform-style:preserve-3d ;
+        transition: transform 0.05s linear;
+
+        &--card{
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+
+            &:after{
+                background: inherit;
+                content: '';
+                display: block;
+                position: absolute;
+                left: -60px;
+                top: 40px;
+                width: 100%;
+                height: 85%;
+                z-index: -1;
+                filter: blur(50px);
+            }
+        }
+    }
+    h2{
+        position: absolute;
+        top: 0;
+        font-size: 1.1em;
+        font-weight: 100;
+        transform: translateZ(80px);
+        text-transform: uppercase;
+    }
+    span{
+        position: absolute;
+        bottom: 40px;
+        right: -10px;
+        font-size: 0.8em;
+        font-weight: 600;
+        transform: translateZ(35px);
+    }
+}
+
