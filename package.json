@@ -1,8 +1,8 @@
 {
-  "name": "projet-space-sass",
+  "name": "projet-3-sass",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "script.js",
   "scripts": {
     "sass":"sass --watch ./main.scss:./style.css"
   },
